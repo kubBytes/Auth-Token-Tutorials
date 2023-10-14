@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "auth-token-tutorials",
   "version": "1.0.0",
   "description": "Learning Auth Token",
