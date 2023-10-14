@@ -4,6 +4,7 @@ import { generateAuthToken } from './auth-logic.js';
 const app = express()
 const port = 3000
 
+/* -------------------- フルスクラッチのトークンベース認可 -------------------- */
 app.get('/login', (req, res) => {
     //ユーザ情報
     const user = {
@@ -22,6 +23,12 @@ app.get('/login', (req, res) => {
 app.get('/protected-resource', authorize, (req, res) => {
     res.json({ message: "プロテクトされたリソースにアクセスしました" });
 });
+
+
+/* -------------------- JWTを使ったトークンベース認可 -------------------- */
+//秘密鍵
+secretKey = 'userSecretKey';
+
 
 app.listen(port, () => {
   console.log(`${port}番ポートでアプリを実行中です。`)
